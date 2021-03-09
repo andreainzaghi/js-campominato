@@ -1,0 +1,83 @@
+/* *{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.container{
+  display: flex;
+  width:100%;
+  height:calc(100vh - 370px);
+  align-items: center;
+  justify-content: center;
+}
+.row{
+  margin-bottom:200px;
+}
+body{
+  background-color: background: rgb(52,52,53);
+background: linear-gradient(338deg, rgba(52,52,53,0.8938075474330357) 0%, rgba(108,75,227,1) 100%);
+}
+h1{
+  color: #fff;
+}
+.titolo{
+text-align:center;
+height:70px;
+margin-top:100px;
+}
+.scrivi{
+  height:50px;
+  width:250px;
+  border-radius: 10px;
+  background-color: black;
+  color:#fff;
+  border: none;
+}
+.scrivi1{
+    background-color: black;
+      border: none;
+  height:50px;
+  width:250px;
+  border-radius: 10px;
+  padding:13px;
+  font-size: 14px;
+  font-weight: bold;
+  color:#fff;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+/* cubo */
+/* .cubo{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.cubo1{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+
+  animation-name: example1;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes example {
+  0%   {background-color:#fff; left:0px; top:0px;}
+  25%  {background-color:#6c4be3; left:1130px; top:0px;}
+  50%  {background-color:#343435; left:1130px; top:610px;}
+  75%  {background-color:#fff; left:0px; top:610px;}
+  100% {background-color:#6c4be3; left:0px; top:0px;}
+}
+@keyframes example1 {
+  0%   {background-color:#fff; left:1030px; top:410px;}
+  25%  {background-color:#6c4be3; left:100px; top:410px;}
+  50%  {background-color:#343435; left:100px; top:0px;}
+  75%  {background-color:#fff; left:1030px; top:0px;}
+  100% {background-color:#6c4be3; left:1030px; top:410px;}
+}  */ */
