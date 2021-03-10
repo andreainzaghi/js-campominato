@@ -98,12 +98,6 @@ function startGame() {
     } else {
       userNumList.push(userNum);
     }
-    if ( numControl( bombs, userNum ) == true ) {
-      boom.play();
-      return output.innerHTML = "Hai perso... Punteggio: " + userNumList.length;
-    } else if ( userNumList.length == maxNum - bombeBonus ) {
-      kids.play();
-      return output.innerHTML = "Hai vinto!! Complimenti!!";
-    }
+
   }
 }
