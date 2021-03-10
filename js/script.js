@@ -1,42 +1,109 @@
-// genera numeri casualòi tra 0 a 100
 
-function random() {
-
-  var bombe = [];
-  var bomba;
-
-  var i = 0;
-
-  while (i < 16) {
-    bomba = Math.floor(Math.random() * 100) + 1;
-    if (!(bombe.includes(bomba))){
-      bombe.push(bomba);
-      i++
-    }
-  }
-
-  console.log(bombe);
-  console.log(bombe.length);
-
-};
+// .................................................................................................................
 
 
-// verifico i numeri inserirti
-
-var numeri = [];
-var utente;
-
-var x = 0;
-
-while (x > 100 && x < 0) {
-
-  utente = parseInt(prompt("Inserisci un numero da 1 a 100"));
-
-  if (!(numeri.includes(utente)) && !(isNaN(utente)) && !(utente < 1 || utente > 100)) {
-    numeri.push(utente);
-    x++
-  }
-  console.log(numeri);
+// Genera un numero casuale
+function genRandomNum( max, min ) {
+  return Math.floor( Math.random() * (max - min + 1) ) + min;
 }
 
-console.log(numeri.length);
+
+
+
+
+// Controllo se il numero è uguale ai precedenti
+function numControl( array, num ) {
+  for ( var j = 0; j < array.length; j++ ) {
+    if ( num == array[j] ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+
+
+
+// funzione bottone
+function genBtn () {
+  for ( var i = 1; i == btnMaxValue; i++ ) {
+    htmlElement.innerHTML += "<button class=\"btn\" value = " + i + ">" + i + "</button>";
+  }
+}
+
+
+
+
+
+
+
+// Onclick inizia la funzione
+function startGame() {
+
+  // Dichiarazione variabili
+  var bombs = [],
+  maxNum = 100,
+  minNum = 1,
+  bombeBonus = 16;
+  output = document.getElementById('output'),
+  userNum = 0,
+  userNumList = [];
+
+
+
+
+
+
+  // Selezione livello e relativi controlli
+ var level = parseInt( prompt("INSERISCI: \n0 = livello facile \n1 = livello normale \n2 = livello difficile") );
+  while ( level < 0 || level > 2 || isNaN( level ) ) {
+    level = parseInt( prompt("Il valore inserito non è valido \nINSERISCI: \n0 = livello difficile \n1 = livello normale \n2 = livello facile") );
+  }
+  if ( level == 1 ) {
+    maxNum = 80;
+  } else if ( level == 2 ) {
+    maxNum = 50;
+  }
+
+
+
+
+
+
+  // Ciclo for per generare i numeri con un ciclo for e per controllare che sia diverso dagli altri numeri tramite funzioni
+  for ( var i = 0; i < bombeBonus; i++ ) {
+    if ( bombs.length > 0 && numControl( bombs, bombs[i] ) == true ) {
+      i -= 1;
+    }
+    bombs[i] = genRandomNum( maxNum, minNum );
+  }
+  console.log("Numeri bomba: " + bombs);
+
+
+
+
+
+
+
+
+
+  // Ciclo che riceve il numero in input, controlla la validità, controlla se è una bomba o meno. Terminati i numeri sicuri il contatore viene incrementato per fermare il ciclo
+  while ( userNumList.length < maxNum - bombeBonus ) {
+    userNum = parseInt( prompt("Inserisci un numero da " + minNum + " a " + maxNum ) );
+    if ( userNum < minNum || userNum > maxNum || isNaN( userNum ) ) {
+      alert("Il valore inserito non è valido");
+    } else if ( userNumList.length > 0 && numControl( userNumList, userNum ) == true ) {
+      alert("Devi inserire un numero diverso, non barare!!");
+    } else {
+      userNumList.push(userNum);
+    }
+    if ( numControl( bombs, userNum ) == true ) {
+      boom.play();
+      return output.innerHTML = "Hai perso... Punteggio: " + userNumList.length;
+    } else if ( userNumList.length == maxNum - bombeBonus ) {
+      kids.play();
+      return output.innerHTML = "Hai vinto!! Complimenti!!";
+    }
+  }
+}
